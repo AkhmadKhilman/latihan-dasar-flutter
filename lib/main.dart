@@ -21,7 +21,7 @@ void main() {
   // );
 
   // Memanggil class yang berisi MaterialApp
-  runApp(const StylingText());
+  runApp(const TeksAligmentTest());
 }
 
 // Pembuatan class yang berisi MaterialApp dengan extends ke statelessWdiget
@@ -210,6 +210,49 @@ class StylingText extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class TeksAligmentTest extends StatelessWidget {
+  const TeksAligmentTest({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(border: Border.all()),
+          child: const Column(
+            children: [
+              Text(
+                "Posisi di kiri",
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 25),
+              ),
+              Text(
+                "Posisi di tengah",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 25),
+              ),
+              Text(
+                "Posisi di kanan",
+                textAlign: TextAlign.right,
+                style: TextStyle(fontSize: 25),
+              ),
+              SizedBox(height: 15),
+              Text(
+                "Posisi di tepat di tengah-tengah box",
+                textAlign: TextAlign.justify,
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
         ),
       ),
     );
