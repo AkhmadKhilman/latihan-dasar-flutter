@@ -21,7 +21,7 @@ void main() {
   // );
 
   // Memanggil class yang berisi MaterialApp
-  runApp(const SpacingWord());
+  runApp(const StylingText());
 }
 
 // Pembuatan class yang berisi MaterialApp dengan extends ke statelessWdiget
@@ -150,6 +150,65 @@ class SpacingWord extends StatelessWidget {
               style: TextStyle(fontSize: 25, height: 4),
             ),
             Text("Spasi \n per \n Baris", style: TextStyle(fontSize: 25)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Cara menggunakan dekorasi teks dan bayangan teks
+class StylingText extends StatelessWidget {
+  const StylingText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.lightBlueAccent,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Teks dengan garis bawah",
+              style: TextStyle(
+                fontSize: 25,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+
+            SizedBox(height: 25),
+
+            Text(
+              "Teks yang dicoret",
+              style: TextStyle(
+                fontSize: 25,
+                decoration: TextDecoration.lineThrough,
+              ),
+            ),
+
+            SizedBox(height: 25),
+
+            Text(
+              "Teks dengan backgroundnya sendiri",
+              style: TextStyle(
+                fontSize: 25,
+                backgroundColor: Colors.deepPurple,
+                color: Colors.white,
+              ),
+            ),
+
+            SizedBox(height: 25),
+
+            Text(
+              "Teks dengan bayangannya",
+              style: TextStyle(
+                fontSize: 25,
+                shadows: [Shadow(offset: Offset(2, 5), blurRadius: 3)],
+                fontWeight: FontWeight.w900,
+              ),
+            ),
           ],
         ),
       ),
