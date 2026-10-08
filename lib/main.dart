@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  // Menampilkan MaterialApp atau tampilan aplikasi langsung didalam void main
   // runApp(
   //   MaterialApp(
   //     debugShowCheckedModeBanner: false,
@@ -19,11 +20,15 @@ void main() {
   //   ),
   // );
 
+  // Memanggil class yang berisi MaterialApp
   runApp(const MyApp());
 }
 
+// Pembuatan class yang berisi MaterialApp dengan extends ke statelessWdiget
 // class MyApp extends StatelessWidget {
 //   const new({super.key});
+
+//  //valriable const disini wajib menggunakan static agar dapat dijalankan
 //   // const greeting = "Hello Guys...";
 //   static const greeting = "Hello Guys...";
 
@@ -48,10 +53,9 @@ void main() {
 //   }
 // }
 
+// Penggunaan class MaterialApp yang memanggil tampilan dan style text di dalam class lain
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // const greeting = "Hello Guys...";
-  static const greeting = "Hello Guys...";
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +69,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Penggunaan class yang membuat khusus text dan style didalam aplikasi
 class MyText extends StatelessWidget {
   const MyText({super.key});
 
