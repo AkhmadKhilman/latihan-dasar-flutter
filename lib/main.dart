@@ -21,7 +21,7 @@ void main() {
   // );
 
   // Memanggil class yang berisi MaterialApp
-  runApp(const RichTextTest());
+  runApp(const TextScaleTest(title: "Wallahu A'lam Bisoab"));
 }
 
 // Pembuatan class yang berisi MaterialApp dengan extends ke statelessWdiget
@@ -207,6 +207,60 @@ class StylingText extends StatelessWidget {
                 fontSize: 25,
                 shadows: [Shadow(offset: Offset(2, 5), blurRadius: 3)],
                 fontWeight: FontWeight.w900,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Cara menggunakan TextScaler dan memberikan parameter pada class widget
+class TextScaleTest extends StatelessWidget {
+  final String title;
+  const TextScaleTest({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.lightBlueAccent,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 30),
+
+            const Text(
+              "Kondisi ketika text normal dengan ukuran 20 px",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+
+            const SizedBox(height: 15),
+
+            const Text(
+              "Kondisi ketika text di scale up dengan textscaler",
+              textScaler: TextScaler.linear(1.5),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+
+            const SizedBox(height: 15),
+
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
               ),
             ),
           ],
