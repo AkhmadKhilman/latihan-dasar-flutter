@@ -21,7 +21,7 @@ void main() {
   // );
 
   // Memanggil class yang berisi MaterialApp
-  runApp(const MaxLineTextExample());
+  runApp(const RichTextTest());
 }
 
 // Pembuatan class yang berisi MaterialApp dengan extends ke statelessWdiget
@@ -216,6 +216,7 @@ class StylingText extends StatelessWidget {
   }
 }
 
+// Care memposisikan teks baik di kiri, tengah mapupun kanan
 class TeksAligmentTest extends StatelessWidget {
   const TeksAligmentTest({super.key});
 
@@ -259,6 +260,7 @@ class TeksAligmentTest extends StatelessWidget {
   }
 }
 
+// Cara membuat sebuah paragraf terlihat rapih dan proposional
 class MaxLineTextExample extends StatelessWidget {
   const MaxLineTextExample({super.key});
 
@@ -273,12 +275,65 @@ class MaxLineTextExample extends StatelessWidget {
           decoration: BoxDecoration(border: Border.all()),
           child: const Text(
             "Ini adalah sebuah paragraf yang akan di tampilkan menjadi lebih dari satu baris jika sudah memenuhi layar dan dapat menetukan berapa baris kalimat yang ingin di tampilkan dengan menggunakan MaxLines. Lalu ketika kalimat pada suatu paragraf terlalu panjang dan sudah melebihi batas maksimal baris yang telah di tentukan maka sisa kalimat itu akan menghilang. Maka dari itu fungsi TextOverflow dibuat agar teks yang berlebih itu terlihat rapih seperti menggunakan elipsis agar sisa teks menjadi (...), clip yang menghilangkan sisanya dan terlihat seperti terputus kalimat selanjutnya, fade yang membuat teks dibaris terahir sedikit memudar,  dan visible yang fungsinya mirip seperti clip yakni sisa kalimatnya jadi menghilang dan terlihat seperti terputus.",
-            maxLines: 5,
+            maxLines: 6,
             overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+            ),
           ),
         ),
+        backgroundColor: Colors.limeAccent,
       ),
     );
   }
 }
 
+// Cara membuat satu kalimat dengan perbedaan style di setiap kata nya
+class RichTextTest extends StatelessWidget {
+  const RichTextTest({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(border: Border.all()),
+          child: RichText(
+            text: TextSpan(
+              style: TextStyle(fontSize: 25, color: Colors.white60),
+              children: [
+                TextSpan(
+                  text: "Selamat datang di stasiun Purwokerto \n",
+                  style: TextStyle(height: 2),
+                ),
+
+                TextSpan(
+                  text: "KA ",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                    height: 2,
+                  ),
+                ),
+
+                TextSpan(
+                  text: "SERAYU",
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white,
+                    height: 2,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        backgroundColor: Colors.deepPurple,
+      ),
+    );
+  }
+}
